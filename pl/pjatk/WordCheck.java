@@ -27,10 +27,34 @@ public class WordCheck {
         }
     }
 
-    public boolean PeselIsValid(String txt){
+    public boolean DateIsValid(String txt){
+        if(txt.length() == 10)
+        {
+            if(txt.matches("[0-9-]+")) {
+                int day = Integer.parseInt(txt.substring(0, 2));
+                return true;
+            }
+            else {
+                System.out.println("Please use only digits and '-' between them!");
+                return false;
+            }
+        }
+        else return false;
+    }
+
+    public boolean PeselIsValid(String txt, String date){
 
         if(txt.matches("[0-9]+")) {
-            if(txt.length() == 11) return true;
+            if(txt.length() == 11) {
+                if(txt.substring(0,2).equals(date.substring(8,10)) && txt.substring(2,4).equals(date.substring(3,5)) &&  txt.substring(4,6).equals(date.substring(0,2)))
+                {
+                    return true;
+                }
+                else {
+                    System.out.println("Pesel not correct. Please make sure your pesel starts with your date of birth! (YYMMDD)");
+                    return false;
+                }
+            }
             else {
                 System.out.println("Please enter 11 digits.");
                 return false;
@@ -50,7 +74,6 @@ public class WordCheck {
                 int sum = 0;
                 for(int i=0; i<9; i++) {
                     int cont_num = Integer.parseInt(String.valueOf(txt.charAt(i)));
-                    System.out.println(String.valueOf(txt.charAt(i)));
                     sum += cont_num*waga[i];
                 }
                 int check_nr = sum%11;
@@ -87,9 +110,10 @@ public class WordCheck {
         }
     }
 
-    public boolean MaleIsValid(String txt){
+    public boolean GenderIsValid(String txt, String pesel){
 
-        if(txt == "Male" || txt == "Female") return true;
+        if(txt.equals("Male") && Integer.parseInt(pesel.substring(9,10))%2 == 1) return true;
+        else if (txt.equals("Male") && Integer.parseInt(pesel.substring(9,10))%2 == 0) return true;
         else {
             System.out.println("Please enter 'Male' or 'Female.");
             return false;
