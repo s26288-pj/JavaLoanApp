@@ -11,52 +11,52 @@ public class Main {
         System.out.println("Welcome! Please enter billing information : ");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Name: ");
-        loanApp.firstName = scanner.next();
-        while(wordCheck.StringIsValid(loanApp.firstName)==false) {
+        loanApp.setFirstName(scanner.next());
+        while(wordCheck.StringIsValid(loanApp.getFirstName())==false) {
             System.out.print("Name: ");
-            loanApp.firstName = scanner.next();
+            loanApp.setFirstName(scanner.next());
         }
 
         System.out.print("Surname: ");
-        loanApp.surname = scanner.next();
-        while(wordCheck.StringIsValid(loanApp.surname)==false) {
+        loanApp.setSurname(scanner.next());
+        while(wordCheck.StringIsValid(loanApp.getSurname())==false) {
             System.out.print("Surname: ");
-            loanApp.surname = scanner.next();
+            loanApp.setSurname(scanner.next());
         }
 
         System.out.print("Date of birth (DD-MM-YYYY): ");
-        loanApp.dateOfBirth = scanner.next();
-        while(wordCheck.DateIsValid(loanApp.dateOfBirth) == false) {
+        loanApp.setDateOfBirth(scanner.next());
+        while(wordCheck.DateIsValid(loanApp.getDateOfBirth()) == false) {
             System.out.print("Date of birth (DD-MM-YYYY): ");
-            loanApp.dateOfBirth = scanner.next();
+            loanApp.setDateOfBirth(scanner.next());
         }
 
         System.out.print("Pesel: ");
-        loanApp.pesel = scanner.next();
-        while(wordCheck.PeselIsValid(loanApp.pesel, loanApp.dateOfBirth)==false) {
+        loanApp.setPesel(scanner.next());
+        while(wordCheck.PeselIsValid(loanApp.getPesel(), loanApp.getDateOfBirth())==false) {
             System.out.print("Pesel: ");
-            loanApp.pesel = scanner.next();
+            loanApp.setPesel(scanner.next());
         }
 
         System.out.print("NIP number: ");
-        loanApp.NIP = scanner.next();
-        while(wordCheck.NipIsValid(loanApp.NIP)==false) {
+        loanApp.setNIP(scanner.next());
+        while(wordCheck.NipIsValid(loanApp.getNIP())==false) {
             System.out.print("NIP number: ");
-            loanApp.NIP = scanner.next();
+            loanApp.setNIP(scanner.next());
         }
 
         System.out.print("Bank Account: ");
-        loanApp.bankAccountNumber = scanner.next();
-        while(wordCheck.BankAccIsValid(loanApp.bankAccountNumber)==false) {
+        loanApp.setBankAccountNumber(scanner.next());
+        while(wordCheck.BankAccIsValid(loanApp.getBankAccountNumber())==false) {
             System.out.print("Bank Account: ");
-            loanApp.bankAccountNumber = scanner.next();
+            loanApp.setBankAccountNumber(scanner.next());
         }
 
         System.out.print("Gender: ");
-        loanApp.gender = scanner.next();
-        while(wordCheck.GenderIsValid(loanApp.gender, loanApp.pesel) == false) {
+        loanApp.setGender(scanner.next());
+        while(wordCheck.GenderIsValid(loanApp.getGender(), loanApp.getPesel()) == false) {
             System.out.print("Gender: ");
-            loanApp.gender = scanner.next();
+            loanApp.setGender(scanner.next());
         }
     }
 }
